@@ -7,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MegadataApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run("META-INF/spring/springConfig.xml", args);
+		SpringApplication.run("classpath:META-INF/spring/springConfig.xml", args);
 	}
 }
