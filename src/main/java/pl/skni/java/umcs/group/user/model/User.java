@@ -1,4 +1,4 @@
-package pl.skni.java.umcs.group.model;
+package pl.skni.java.umcs.group.user.model;
 
 import lombok.Data;
 
