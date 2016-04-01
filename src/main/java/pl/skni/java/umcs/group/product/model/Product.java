@@ -1,6 +1,7 @@
 package pl.skni.java.umcs.group.product.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -10,8 +11,9 @@ import java.util.List;
  * Created by Tomasz Szerszeń on 01.04.16.
  */
 @Entity
-@Table(name = "M_Product")
 @Getter
+@Table(name = "M_Product")
+@NoArgsConstructor
 public class Product {
     @Id
     @GeneratedValue
@@ -20,8 +22,7 @@ public class Product {
 
     @JoinColumn(name = "typeId")
     @ManyToOne
-    @Column(name = "type")
-    Integer type;
+    ProductType productType;
 
     @Column(name = "name")
     String name;
@@ -39,8 +40,8 @@ public class Product {
     @OneToMany
     List<Opinion> opinions;
 
-    public Product(Integer type, String name, BigDecimal price, String specs, List<Opinion> opinions) {
-        this.type = type;
+    public Product(ProductType productType, String name, BigDecimal price, String specs, List<Opinion> opinions) {
+        this.productType = productType;
         this.name = name;
         this.price = price;
         this.specs = specs;

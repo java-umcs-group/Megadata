@@ -1,6 +1,7 @@
 package pl.skni.java.umcs.group.product.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -9,8 +10,9 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "M_Opinion")
 @Getter
+@Table(name = "M_Opinion")
+@NoArgsConstructor
 public class Opinion {
     @Id
     @GeneratedValue

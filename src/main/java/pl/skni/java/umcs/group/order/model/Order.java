@@ -1,6 +1,7 @@
 package pl.skni.java.umcs.group.order.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import pl.skni.java.umcs.group.product.model.Product;
 import pl.skni.java.umcs.group.user.model.User;
 
@@ -12,6 +13,8 @@ import java.util.List;
  */
 @Entity
 @Getter
+@Table(name = "L_Order")
+@NoArgsConstructor
 public class Order {
 
     @Id

@@ -3,10 +3,58 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:component-scan base-package="pl.skni.java.umcs.group"/>
     <jdbc:embedded-database type="H2" id="dataSource" />
 
 
+    <context:component-scan base-package="pl.skni.java.umcs.group" />
+    <jpa:repositories base-package="pl.skni.java.umcs.group"/>
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="search*" read-only="true"/>
+            <tx:method name="count*" read-only="true"/>
+            <tx:method name="find*" read-only="true"/>
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="is*" read-only="true"/>
+            <tx:method name="check*" read-only="true"/>
+            <tx:method name="*" read-only="false" propagation="REQUIRED" timeout="150"
+                       rollback-for="pl.skni.java.umcs.group.exceptions.BusinessException"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <security:global-method-security pre-post-annotations="enabled">
+        <security:protect-pointcut expression="execution(* pl.skni.java.umcs.group.*.*(..))" access="ROLE_USER"/>
+    </security:global-method-security>
+
+    <aop:config>
+        <aop:pointcut id="serviceOperation"
+                      expression="execution(* pl.skni.java.umcs.group..*.*Service.*(..))"/>
+        <aop:pointcut id="finderOperation"
+                      expression="execution(* pl.skni.java.umcs.group..*.*Finder.*(..))"/>
+        <aop:pointcut id="repositoryOperation"
+                      expression="execution(* pl.skni.java.umcs.group..*.*Repository.*(..))"/>
+        <aop:pointcut id="builderOperation"
+                      expression="execution(* pl.skni.java.umcs.group..*.*Builder.*(..))"/>
+        <aop:pointcut id="operationHelper"
+                      expression="execution(* pl.skni.java.umcs.group..*.*Helper.*(..))"/>
+        <aop:pointcut id="dao"
+                      expression="execution(* pl.skni.java.umcs.group..*.*DAO.*(..))"/>
+        <aop:pointcut id="generator"
+                      expression="execution(* pl.skni.java.umcs.group..*.*Generator.*(..))"/>
+        <aop:pointcut id="assemblerOperation"
+                      expression="execution(* pl.skni.java.umcs.group..*.*Assembler.*(..))"/>
+
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="finderOperation"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="repositoryOperation"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="builderOperation"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="assemblerOperation"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="operationHelper"/>
+    </aop:config>
 </beans>

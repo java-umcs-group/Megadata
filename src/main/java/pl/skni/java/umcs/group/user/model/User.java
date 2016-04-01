@@ -2,6 +2,7 @@ package pl.skni.java.umcs.group.user.model;
 
 import com.google.common.collect.Lists;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,8 +16,9 @@ import java.util.List;
  * Created by Jakub Pyda on 31.03.2016.
  */
 @Entity
-@Table(name = "M_User")
 @Getter
+@NoArgsConstructor
+@Table(name = "M_User")
 public class User implements UserDetails {
     @Id
     @Column(name = "userId")
@@ -48,9 +50,6 @@ public class User implements UserDetails {
         this.expired = false;
         this.locked = false;
         this.enabled = true; //todo enabled true po wysłaniu maila i potwierdzeniu konta
-    }
-
-    public User() {
     }
 
     public void updateUserDetails(String firstName, String lastName, String city, String email, String address, String zipCode, String phoneNumber) {

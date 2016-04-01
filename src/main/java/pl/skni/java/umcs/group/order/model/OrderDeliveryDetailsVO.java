@@ -1,6 +1,7 @@
 package pl.skni.java.umcs.group.order.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -10,6 +11,7 @@ import javax.persistence.Embeddable;
  */
 @Embeddable
 @Getter
+@NoArgsConstructor
 public class OrderDeliveryDetailsVO {
 
     @Column(name = "firstName")

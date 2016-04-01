@@ -8,5 +8,6 @@ public class MegadataApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run("classpath:META-INF/spring/springConfig.xml", args);
+		System.out.println("Application is running");
 	}
 }
