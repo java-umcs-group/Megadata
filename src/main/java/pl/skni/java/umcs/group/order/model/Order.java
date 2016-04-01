@@ -1,5 +1,6 @@
 package pl.skni.java.umcs.group.order.model;
 
+import lombok.Getter;
 import pl.skni.java.umcs.group.product.model.Product;
 import pl.skni.java.umcs.group.user.model.User;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * Created by Grzegorz on 2016-04-01.
  */
 @Entity
+@Getter
 public class Order {
 
     @Id

@@ -1,6 +1,7 @@
 package pl.skni.java.umcs.group.user.model;
 
 import com.google.common.collect.Lists;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +16,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "M_User")
+@Getter
 public class User implements UserDetails {
     @Id
     @Column(name = "userId")

@@ -1,5 +1,7 @@
 package pl.skni.java.umcs.group.user.model;
 
+import lombok.Getter;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -7,6 +9,7 @@ import javax.persistence.Embeddable;
  * Created by Jakub Pyda on 01.04.2016.
  */
 @Embeddable
+@Getter
 public class UserDetailsVO {
 
     @Column(name = "firstName")
