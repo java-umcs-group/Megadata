@@ -15,10 +15,11 @@ public class Order {
     private Integer orderId;//pk
 
     @OneToMany
-    @JoinColumn
+    @JoinColumn(name = "productId")
     private Integer productId;//fk
 
     @ManyToOne
+    @JoinColumn(name = "userId")
     private Integer userId;//fk
 
     private String firstName;
@@ -30,6 +31,7 @@ public class Order {
     private String phone;
 
     @OneToOne
+    @JoinColumn(name = "statusId")
     private Integer status;//fk
 
     public Order(Integer productId, Integer userId, String firstName, String lastName, String address, String city, String zipCode, String email, String phone, Integer status) {
