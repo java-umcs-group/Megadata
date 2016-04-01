@@ -1,6 +1,8 @@
 package pl.skni.java.umcs.group.order.model;
 
 import lombok.Data;
+import pl.skni.java.umcs.group.product.model.Product;
+import pl.skni.java.umcs.group.user.model.User;
 
 import javax.persistence.*;
 
@@ -10,43 +12,25 @@ import javax.persistence.*;
 @Entity
 @Data
 public class Order {
+
     @Id
     @GeneratedValue
-    private Integer orderId;//pk
+    private Integer orderId;
 
     @OneToMany
     @JoinColumn(name = "productId")
-    private Integer productId;//fk
+    private Product product;
 
     @ManyToOne
     @JoinColumn(name = "userId")
-    private Integer userId;//fk
+    private User user;
 
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String city;
-    private String zipCode;
-    private String email;
-    private String phone;
+    @Embedded
+    private OrderDetails orderDetails;
 
     @OneToOne
     @JoinColumn(name = "statusId")
-    private Integer status;//fk
+    private OrderStatus status;
 
-    public Order(Integer productId, Integer userId, String firstName, String lastName, String address, String city, String zipCode, String email, String phone, Integer status) {
-        this.productId = productId;
-        this.userId = userId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.city = city;
-        this.zipCode = zipCode;
-        this.email = email;
-        this.phone = phone;
-        this.status = status;
-    }
 
-    public Order() {
-    }
 }
