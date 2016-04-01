@@ -27,7 +27,7 @@ public class Order {
     private User user;
 
     @Embedded
-    private OrderDeliveryDetails orderDetails;
+    private OrderDeliveryDetailsVO orderDetails;
 
     @Column
     private OrderStatus status;
@@ -37,7 +37,7 @@ public class Order {
         this.products = products;
         this.user = user;
         this.status = OrderStatus.NEW;
-        this.orderDetails = new OrderDeliveryDetails(firstName, lastName, address, city, zipCode, email, phoneNumber);
+        this.orderDetails = new OrderDeliveryDetailsVO(firstName, lastName, address, city, zipCode, email, phoneNumber);
     }
 
     public void changeStatus(OrderStatus orderStatus) {

@@ -10,7 +10,7 @@ import javax.persistence.Embeddable;
  */
 @Embeddable
 @Getter
-public class OrderDeliveryDetails {
+public class OrderDeliveryDetailsVO {
 
     @Column(name = "firstName")
     private String firstName;
@@ -27,7 +27,7 @@ public class OrderDeliveryDetails {
     @Column(name = "phoneNumber")
     private String phoneNumber;
 
-    public OrderDeliveryDetails(String firstName, String lastName, String address, String city, String zipCode, String email, String phoneNumber) {
+    public OrderDeliveryDetailsVO(String firstName, String lastName, String address, String city, String zipCode, String email, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
