@@ -1,7 +1,6 @@
 package pl.skni.java.umcs.group.product.model;
 
 import lombok.Getter;
-import org.crsh.cli.Man;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -32,6 +31,9 @@ public class Product {
 
     @Column(name = "specs")
     String specs;
+
+    @Column(name = "quantity")
+    Integer quantity;
 
     @JoinColumn(name = "opinionId")
     @OneToMany
