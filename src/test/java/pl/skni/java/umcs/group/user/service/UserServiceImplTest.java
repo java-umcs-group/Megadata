@@ -1,7 +1,10 @@
 package pl.skni.java.umcs.group.user.service;
 
+import org.junit.Before;
 import org.junit.Test;
 import pl.skni.java.umcs.group.ItTestHelper;
+import pl.skni.java.umcs.group.user.model.Authority;
+import pl.skni.java.umcs.group.user.model.Role;
 import pl.skni.java.umcs.group.user.model.User;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -11,6 +14,13 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 
 public class UserServiceImplTest extends ItTestHelper {
+
+    @Before
+    public void setUp() throws Exception {
+        //wartosci slownikowe
+        authorityRepository.save(new Authority(Role.ROLE_ADMIN));
+        authorityRepository.save(new Authority(Role.ROLE_USER));
+    }
 
     @Test
     public void shouldCreateUserAndGetById() {

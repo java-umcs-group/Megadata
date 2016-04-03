@@ -26,11 +26,4 @@ public class ItTestHelper {
 	@Test
 	public void contextLoads() {
 	}
-
-	@Before
-	public void setUp() throws Exception {
-		//wartosci slownikowe
-		authorityRepository.save(new Authority(Role.ROLE_ADMIN));
-		authorityRepository.save(new Authority(Role.ROLE_USER));
-	}
 }
