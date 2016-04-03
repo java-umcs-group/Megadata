@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import pl.skni.java.umcs.group.product.model.Product;
 import pl.skni.java.umcs.group.user.model.User;
 
+import javax.annotation.Nullable;
 import javax.persistence.*;
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "userId")
+    @Nullable
     private User user;
 
     @Embedded
@@ -36,7 +38,7 @@ public class Order {
     private OrderStatus status;
 
 
-    public Order(List<Product> products, User user,String firstName, String lastName, String address, String city, String zipCode, String email, String phoneNumber ) {
+    public Order(List<Product> products, @Nullable User user, String firstName, String lastName, String address, String city, String zipCode, String email, String phoneNumber ) {
         this.products = products;
         this.user = user;
         this.status = OrderStatus.NEW;

@@ -14,9 +14,9 @@ import javax.persistence.*;
 public class Authority implements GrantedAuthority {
 
     @Id
-    @Column(name = "AuthorityId")
+    @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
+    Integer authorityId;
 
     @Column(name = "Role")
     Role role;

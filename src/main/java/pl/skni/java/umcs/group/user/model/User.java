@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import static pl.skni.java.umcs.group.helper.ValidationHelper.validateNotNullParams;
+
 /**
  * Created by Jakub Pyda on 31.03.2016.
  */
@@ -23,7 +25,7 @@ public class User implements UserDetails {
     @Id
     @Column(name = "userId")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
+    Integer userId;
 
     @Column(name = "userName")
     String userName;
@@ -35,7 +37,7 @@ public class User implements UserDetails {
     String password;
 
     @JoinColumn(name = "authorityId")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Authority authority;
 
     Boolean expired;
@@ -43,6 +45,7 @@ public class User implements UserDetails {
     Boolean enabled;
 
     public User(String userName, String password, Authority authority, String firstName, String lastName, String email, String address, String phoneNumber, String zipCode, String city) {
+        validateNotNullParams(userName, password, authority);
         this.userName = userName;
         this.password = password;
         this.authority = authority;
