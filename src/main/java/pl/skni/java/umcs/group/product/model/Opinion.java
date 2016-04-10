@@ -2,8 +2,11 @@ package pl.skni.java.umcs.group.product.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import pl.skni.java.umcs.group.helper.ValidationHelper;
 
 import javax.persistence.*;
+
+import static pl.skni.java.umcs.group.helper.ValidationHelper.validateNotNullParams;
 
 /**
  * Created by Tomasz Szerszeń on 01.04.16.
@@ -30,6 +33,7 @@ public class Opinion {
     Product product;
 
     public Opinion(String opinion, Integer rate, Product product) {
+        validateNotNullParams(opinion, rate, product);
         this.opinion = opinion;
         this.rate = rate;
         this.product = product;

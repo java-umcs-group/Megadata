@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import static pl.skni.java.umcs.group.helper.ValidationHelper.validateNotNullParams;
+
 /**
  * Created by Tomasz Szerszeń on 01.04.16.
  */
@@ -26,6 +28,7 @@ public class ProductType {
     String longName;
 
     public ProductType(String shortName, String longName) {
+        validateNotNullParams(shortName, longName);
         this.shortName = shortName;
         this.longName = longName;
     }
