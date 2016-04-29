@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     public User createUser(String userName, String password, String firstName, String lastName, String email,
                            String address, String phoneNumber, String zipCode, String city) {
 
-        Authority authority = authorityRepository.findOrderByRole(Role.ROLE_USER);
+        Authority authority = authorityRepository.findByRole(Role.ROLE_USER);
         User user = new User(userName, password, authority, firstName, lastName, email, address,
                 phoneNumber, zipCode, city);
 

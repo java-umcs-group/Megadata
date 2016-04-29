@@ -9,5 +9,5 @@ import pl.skni.java.umcs.group.user.model.Role;
  */
 public interface AuthorityRepository extends JpaRepository<Authority,Integer> {
 
-    Authority findOrderByRole(Role role);
+    Authority findByRole(Role role);
 }
