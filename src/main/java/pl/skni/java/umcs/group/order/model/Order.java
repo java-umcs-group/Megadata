@@ -26,7 +26,7 @@ public class Order {
     @JoinTable(name = "M_L_Order_Product")
     private List<Product> products;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "userId")
     @Nullable
     private User user;
