@@ -9,6 +9,7 @@ import pl.skni.java.umcs.group.transaction.model.TransactionStatus;
 import pl.skni.java.umcs.group.transaction.respository.TransactionRepository;
 
 import java.util.List;
+
 @Service
 public class TransactionServiceImpl implements TransactionService {
 
@@ -20,19 +21,23 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public Transaction getByOrder(Order order) {
-       return transactionRepository.findByOrder(order);
+    public Transaction findById(Integer transactionId) {
+        return transactionRepository.findOne(transactionId);
     }
 
     @Override
-    public List<Transaction> getByStatus(TransactionStatus transactionStatus) {
-//        return transactionRepository.findByTransactionStatus(transactionStatus);
-    return  null;
+    public Transaction findByOrderId(Integer orderId) {
+        return transactionRepository.findByOrderOrderId(orderId);
+    }
+
+    @Override
+    public List<Transaction> findByStatus(TransactionStatus transactionStatus) {
+        return transactionRepository.findByStatus(transactionStatus);
     }
 
     @Override
     public Transaction createTransaction(Order order, PaymentType paymentType) {
-        Transaction transaction = new Transaction(order,paymentType);
+        Transaction transaction = new Transaction(order, paymentType);
         return transactionRepository.save(transaction);
     }
 }

@@ -17,7 +17,7 @@ public class Transaction {
     @GeneratedValue
     Integer id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "orderId")
     Order order;
 
@@ -27,20 +27,24 @@ public class Transaction {
     @Column
     TransactionStatus status;
 
-    @Column
+    @Column()
     PaymentType paymentType;
 
     public Transaction(Order order, PaymentType paymentType) {
         this.order = order;
         this.status = TransactionStatus.NEW;
         this.paymentType = paymentType;
-        this.costTotal = order.getProducts().stream()
-                .map(product -> product.getPrice().multiply(BigDecimal.valueOf(product.getQuantity())))
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
+        setCalculatedCostTotal();
     }
 
     public void pay() {
         status = TransactionStatus.CHARGED;
         order.changeStatus(OrderStatus.PAID);
+    }
+
+    private void setCalculatedCostTotal() {
+        this.costTotal = order.getProducts().stream()
+                .map(product -> product.getPrice().multiply(BigDecimal.valueOf(product.getQuantity())))
+                .reduce(BigDecimal.ZERO, BigDecimal::add).setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 }
