@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="300.39285714285717" y="0.0">pl.skni.java.umcs.group.product.model.Opinion</node>
+    <node x="0.0" y="195.0">pl.skni.java.umcs.group.user.model.User</node>
+    <node x="331.82142857142856" y="208.5">pl.skni.java.umcs.group.product.model.Product</node>
+    <node x="44.0" y="27.0">pl.skni.java.umcs.group.user.model.Authority</node>
+    <node x="173.39285714285717" y="498.0">pl.skni.java.umcs.group.order.model.Order</node>
+    <node x="509.39285714285717" y="13.5">pl.skni.java.umcs.group.productType.model.ProductType</node>
+    <node x="191.39285714285717" y="720.0">pl.skni.java.umcs.group.transaction.model.Transaction</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="pl.skni.java.umcs.group.product.model.Opinion" target="pl.skni.java.umcs.group.product.model.Product">
+      <point x="47.25" y="72.5" />
+      <point x="442.14285714285717" y="170.0" />
+      <point x="456.32142857142856" y="170.0" />
+      <point x="0.0" y="-113.0" />
+    </edge>
+    <edge source="pl.skni.java.umcs.group.product.model.Product" target="pl.skni.java.umcs.group.product.model.Opinion">
+      <point x="-83.0" y="-113.0" />
+      <point x="373.32142857142856" y="170.0" />
+      <point x="347.64285714285717" y="170.0" />
+      <point x="-47.25" y="72.5" />
+    </edge>
+    <edge source="pl.skni.java.umcs.group.user.model.User" target="pl.skni.java.umcs.group.user.model.Authority">
+      <point x="0.0" y="-126.5" />
+      <point x="0.0" y="45.5" />
+    </edge>
+    <edge source="pl.skni.java.umcs.group.order.model.Order" target="pl.skni.java.umcs.group.user.model.User">
+      <point x="-61.25" y="-86.0" />
+      <point x="234.64285714285717" y="473.0" />
+      <point x="148.0" y="473.0" />
+      <point x="0.0" y="126.5" />
+    </edge>
+    <edge source="pl.skni.java.umcs.group.transaction.model.Transaction" target="pl.skni.java.umcs.group.order.model.Order">
+      <point x="0.0" y="-86.0" />
+      <point x="0.0" y="86.0" />
+    </edge>
+    <edge source="pl.skni.java.umcs.group.product.model.Product" target="pl.skni.java.umcs.group.productType.model.ProductType">
+      <point x="83.0" y="-113.0" />
+      <point x="539.3214285714286" y="170.0" />
+      <point x="593.8928571428571" y="170.0" />
+      <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="pl.skni.java.umcs.group.order.model.Order" target="pl.skni.java.umcs.group.product.model.Product">
+      <point x="61.25" y="-86.0" />
+      <point x="357.14285714285717" y="473.0" />
+      <point x="456.32142857142856" y="473.0" />
+      <point x="0.0" y="113.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9539473684210527" x="339.5" y="446.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
