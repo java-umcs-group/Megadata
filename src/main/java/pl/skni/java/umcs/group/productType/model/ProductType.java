@@ -1,4 +1,4 @@
-package pl.skni.java.umcs.group.product.model;
+package pl.skni.java.umcs.group.productType.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

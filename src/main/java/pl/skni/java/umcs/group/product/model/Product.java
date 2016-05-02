@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pl.skni.java.umcs.group.productType.model.ProductType;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -23,11 +24,10 @@ public class Product {
     @GeneratedValue
     @Column(name = "productId")
     Integer id;
-    @Version
-    Integer version;
+
 
     @JoinColumn(name = "typeId")
-    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.PERSIST})
+    @ManyToOne
     ProductType productType;
 
     @Column(name = "name")
@@ -43,7 +43,7 @@ public class Product {
     Integer quantity;
 
     @JoinColumn(name = "opinionId")
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     List<Opinion> opinions;
 
     public Product(ProductType productType, String name, BigDecimal price, String specs) {
