@@ -3,6 +3,7 @@ package pl.skni.java.umcs.group.transaction.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.skni.java.umcs.group.order.model.Order;
+import pl.skni.java.umcs.group.order.repository.OrderRepository;
 import pl.skni.java.umcs.group.transaction.model.PaymentType;
 import pl.skni.java.umcs.group.transaction.model.Transaction;
 import pl.skni.java.umcs.group.transaction.model.TransactionStatus;
@@ -39,5 +40,12 @@ public class TransactionServiceImpl implements TransactionService {
     public Transaction createTransaction(Order order, PaymentType paymentType) {
         Transaction transaction = new Transaction(order, paymentType);
         return transactionRepository.save(transaction);
+    }
+
+    @Override
+    public Transaction completeTransaction(Integer id) {
+        Transaction one = transactionRepository.getOne(id);
+        one.pay();
+        return transactionRepository.save(one);
     }
 }

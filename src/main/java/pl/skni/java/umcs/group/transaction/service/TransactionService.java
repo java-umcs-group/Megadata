@@ -13,4 +13,6 @@ public interface TransactionService  {
     Transaction findByOrderId(Integer orderId);
     List<Transaction> findByStatus(TransactionStatus transactionStatus);
     Transaction createTransaction(Order order, PaymentType paymentType);
+
+    Transaction completeTransaction(Integer id);
 }

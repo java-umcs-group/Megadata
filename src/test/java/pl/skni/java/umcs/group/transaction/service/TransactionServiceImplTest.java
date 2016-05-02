@@ -1,7 +1,6 @@
 package pl.skni.java.umcs.group.transaction.service;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import pl.skni.java.umcs.group.ItTestHelper;
 import pl.skni.java.umcs.group.transaction.model.Transaction;
@@ -14,7 +13,7 @@ public class TransactionServiceImplTest extends ItTestHelper {
     @Test
     public void shouldFindById() throws Exception {
         //given
-        Transaction transactionFix = getTransaction();
+        Transaction transactionFix = createTransaction();
 
         //when
         Transaction transactionServ = transactionService.findById(transactionFix.getId());
@@ -26,7 +25,7 @@ public class TransactionServiceImplTest extends ItTestHelper {
     @Test
     public void shouldFindByOrderId() throws Exception {
         //given
-        Transaction transactionFix = getTransaction();
+        Transaction transactionFix = createTransaction();
 
         //when
         Transaction transactionServ = transactionService.findByOrderId(transactionFix.getOrder().getOrderId());
@@ -37,17 +36,17 @@ public class TransactionServiceImplTest extends ItTestHelper {
     }
 
     @Test
-    @Ignore
     public void shouldFindByStatus() throws Exception {
         //given
-        Transaction transaction1 = getTransaction();
-        Transaction transaction2 = getTransaction();
-        Transaction transaction3 = getTransaction();
-        Transaction transaction4 = getTransaction();
-        Transaction transaction5 = getTransaction();
-        transaction3.pay();
-        transaction4.pay();
-        transaction5.pay();
+        Transaction transaction1 = createTransaction();
+        Transaction transaction2 = createTransaction();
+        Transaction transaction3 = createTransaction();
+        Transaction transaction4 = createTransaction();
+        Transaction transaction5 = createTransaction();
+
+        transactionService.completeTransaction(transaction3.getId());
+        transactionService.completeTransaction(transaction4.getId());
+        transactionService.completeTransaction(transaction5.getId());
 
         //when
         List<Transaction> transactionsNew = transactionService.findByStatus(TransactionStatus.NEW);
@@ -67,7 +66,7 @@ public class TransactionServiceImplTest extends ItTestHelper {
     @Test
     public void shouldCreateTransactionProperly() {
         //given
-        Transaction transactionFix = getTransaction();
+        Transaction transactionFix = createTransaction();
 
         //when
         Transaction transactionServ = transactionService.createTransaction(

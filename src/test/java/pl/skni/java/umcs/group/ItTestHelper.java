@@ -54,7 +54,6 @@ public class ItTestHelper {
     }
 
     protected final String USER_NAME = "john123";
-
     protected final String PASSWORD = "securepass";
     protected final String FIRST_NAME = "john";
     protected final String LAST_NAME = "kowalski";
@@ -64,7 +63,7 @@ public class ItTestHelper {
     protected final String ZIP_CODE = "342-2345";
     protected final String CITY = "NY";
 
-    protected User getUser() {
+    protected User createUser() {
         setUpAuthority();
         return userService.createUser(
                 USER_NAME, PASSWORD, FIRST_NAME, LAST_NAME,
@@ -72,18 +71,18 @@ public class ItTestHelper {
         );
     }
 
-    protected Order getOrder() {
+    protected Order createOrder() {
         return orderService.createOrder(
-                getProducts(), getUser(), FIRST_NAME, LAST_NAME,
+                createProducts(), createUser(), FIRST_NAME, LAST_NAME,
                 ADDRESS, CITY, ZIP_CODE, EMAIL, PHONE_NUMBER
         );
     }
 
-    protected Transaction getTransaction() {
-        return transactionService.createTransaction(getOrder(), PaymentType.CASH);
+    protected Transaction createTransaction() {
+        return transactionService.createTransaction(createOrder(), PaymentType.CASH);
     }
 
-    protected List<Product> getProducts() {
+    protected List<Product> createProducts() {
         List<Product> products = new ArrayList<>();
         Product product1 = productService.createProduct(
                 getProductType(), "SuperBall",
