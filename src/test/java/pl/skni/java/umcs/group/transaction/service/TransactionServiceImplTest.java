@@ -53,14 +53,15 @@ public class TransactionServiceImplTest extends ItTestHelper {
         List<Transaction> transactionsCharged = transactionService.findByStatus(TransactionStatus.CHARGED);
 
         //then
-        Assert.assertEquals("size of charged",3 ,transactionsCharged.size());
-        Assert.assertEquals("size of new",2 ,transactionsNew.size());
+        Assert.assertTrue("Expected >= 3, Actual:"+transactionsCharged.size(), 3 <= transactionsCharged.size());
+        Assert.assertTrue("Expected >= 3, Actual:"+transactionsCharged.size(), 3 <= transactionsCharged.size());
+        Assert.assertTrue("Expected >= 2, Actual:"+transactionsNew.size(), 2 <= transactionsNew.size());
         transactionsNew.stream().forEach(
                 transaction ->
-                        Assert.assertEquals(TransactionStatus.NEW,transaction.getStatus()));
+                        Assert.assertEquals(TransactionStatus.NEW, transaction.getStatus()));
         transactionsCharged.stream().forEach(
                 transaction ->
-                        Assert.assertEquals(TransactionStatus.CHARGED,transaction.getStatus()));
+                        Assert.assertEquals(TransactionStatus.CHARGED, transaction.getStatus()));
     }
 
     @Test
