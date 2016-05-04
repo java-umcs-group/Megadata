@@ -12,6 +12,10 @@ import pl.skni.java.umcs.group.product.model.Product;
 import pl.skni.java.umcs.group.product.service.ProductService;
 import pl.skni.java.umcs.group.productType.model.ProductType;
 import pl.skni.java.umcs.group.productType.service.ProductTypeService;
+import pl.skni.java.umcs.group.shipment.model.Shipment;
+import pl.skni.java.umcs.group.shipment.model.ShipmentStatus;
+import pl.skni.java.umcs.group.shipment.model.ShipmentType;
+import pl.skni.java.umcs.group.shipment.service.ShipmentService;
 import pl.skni.java.umcs.group.transaction.model.PaymentType;
 import pl.skni.java.umcs.group.transaction.model.Transaction;
 import pl.skni.java.umcs.group.transaction.service.TransactionService;
@@ -30,6 +34,8 @@ import java.util.List;
 @ContextConfiguration(locations = "classpath*:META-INF/spring/springTestConfig.xml")
 public class ItTestHelper {
 
+    @Autowired
+    protected ShipmentService shipmentService;
 
     @Autowired
     protected ProductTypeService productTypeService;
@@ -85,11 +91,11 @@ public class ItTestHelper {
     protected List<Product> createProducts() {
         List<Product> products = new ArrayList<>();
         Product product1 = productService.createProduct(
-                getProductType(), "SuperBall",
+                createProductType(), "SuperBall",
                 BigDecimal.TEN, "round, super"
         );
         Product product2 = productService.createProduct(
-                getProductType(), "smallBall",
+                createProductType(), "smallBall",
                 BigDecimal.ONE, "small, super"
         );
         product1.setQuantity(2);
@@ -99,8 +105,12 @@ public class ItTestHelper {
         return products;
     }
 
-    protected ProductType getProductType() {
+    protected ProductType createProductType() {
         return productTypeService.createProductType("b", "ball");
+    }
+
+    protected Shipment createShipment() {
+        return shipmentService.createShipment(createOrder(), ShipmentStatus.PENDING, ShipmentType.EXPRESS);
     }
 
     public void setUpAuthority() {
