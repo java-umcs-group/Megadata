@@ -27,7 +27,7 @@ public class Transaction {
     @Column
     TransactionStatus status;
 
-    @Column()
+    @Column
     PaymentType paymentType;
 
     public Transaction(Order order, PaymentType paymentType) {
