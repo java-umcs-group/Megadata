@@ -3,56 +3,75 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="311.75" y="181.5">pl.skni.java.umcs.group.product.model.Opinion</node>
-    <node x="863.0" y="417.0">pl.skni.java.umcs.group.user.model.User</node>
-    <node x="329.0" y="430.5">pl.skni.java.umcs.group.product.model.Product</node>
-    <node x="709.75" y="208.5">pl.skni.java.umcs.group.user.model.Authority</node>
+    <node x="1016.0" y="181.5">pl.skni.java.umcs.group.product.model.Opinion</node>
+    <node x="546.75" y="417.0">pl.skni.java.umcs.group.user.model.User</node>
+    <node x="1033.25" y="430.5">pl.skni.java.umcs.group.product.model.Product</node>
+    <node x="788.0" y="208.5">pl.skni.java.umcs.group.user.model.Authority</node>
     <node x="331.0" y="720.0">pl.skni.java.umcs.group.order.model.Order</node>
-    <node x="520.75" y="195.0">pl.skni.java.umcs.group.productType.model.ProductType</node>
-    <node x="16.0" y="430.5">pl.skni.java.umcs.group.order.model.OrderDeliveryDetailsVO</node>
-    <node x="937.75" y="141.0">pl.skni.java.umcs.group.user.model.UserDetailsVO</node>
-    <node x="0.0" y="747.0">pl.skni.java.umcs.group.transaction.model.TransactionStatus</node>
-    <node x="735.75" y="0.0">pl.skni.java.umcs.group.user.model.Role</node>
-    <node x="179.0" y="760.5">pl.skni.java.umcs.group.transaction.model.PaymentType</node>
-    <node x="140.5" y="942.0">pl.skni.java.umcs.group.transaction.model.Transaction</node>
-    <node x="631.0" y="444.0">pl.skni.java.umcs.group.order.model.OrderStatus</node>
+    <node x="593.5" y="955.5">pl.skni.java.umcs.group.shipment.model.Shipment</node>
+    <node x="800.0" y="720.0">pl.skni.java.umcs.group.shipment.model.ShipmentStatus</node>
+    <node x="1225.0" y="195.0">pl.skni.java.umcs.group.productType.model.ProductType</node>
+    <node x="233.75" y="430.5">pl.skni.java.umcs.group.order.model.OrderDeliveryDetailsVO</node>
+    <node x="475.0" y="141.0">pl.skni.java.umcs.group.user.model.UserDetailsVO</node>
+    <node x="152.0" y="747.0">pl.skni.java.umcs.group.transaction.model.TransactionStatus</node>
+    <node x="814.0" y="0.0">pl.skni.java.umcs.group.user.model.Role</node>
+    <node x="0.0" y="760.5">pl.skni.java.umcs.group.transaction.model.PaymentType</node>
+    <node x="127.0" y="942.0">pl.skni.java.umcs.group.transaction.model.Transaction</node>
+    <node x="34.75" y="444.0">pl.skni.java.umcs.group.order.model.OrderStatus</node>
+    <node x="596.0" y="733.5">pl.skni.java.umcs.group.shipment.model.ShipmentType</node>
   </nodes>
   <notes />
   <edges>
+    <edge source="pl.skni.java.umcs.group.shipment.model.Shipment" target="pl.skni.java.umcs.group.shipment.model.ShipmentType">
+      <point x="0.0" y="-72.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
     <edge source="pl.skni.java.umcs.group.user.model.User" target="pl.skni.java.umcs.group.user.model.UserDetailsVO">
       <point x="0.0" y="-126.5" />
-      <point x="-73.25" y="113.0" />
+      <point x="73.25" y="113.0" />
     </edge>
     <edge source="pl.skni.java.umcs.group.user.model.Authority" target="pl.skni.java.umcs.group.user.model.Role">
       <point x="0.0" y="-45.5" />
       <point x="0.0" y="45.5" />
     </edge>
-    <edge source="pl.skni.java.umcs.group.order.model.Order" target="pl.skni.java.umcs.group.user.model.User">
-      <point x="98.0" y="-86.0" />
-      <point x="551.5" y="700.0" />
-      <point x="1011.0" y="700.0" />
-      <point x="0.0" y="126.5" />
+    <edge source="pl.skni.java.umcs.group.shipment.model.Shipment" target="pl.skni.java.umcs.group.shipment.model.ShipmentStatus">
+      <point x="63.0" y="-72.5" />
+      <point x="751.0" y="917.0" />
+      <point x="894.5" y="917.0" />
+      <point x="0.0" y="86.0" />
     </edge>
     <edge source="pl.skni.java.umcs.group.transaction.model.Transaction" target="pl.skni.java.umcs.group.transaction.model.TransactionStatus">
-      <point x="-69.66666666666669" y="-86.0" />
-      <point x="175.33333333333331" y="917.0" />
-      <point x="79.5" y="917.0" />
+      <point x="-1.4210854715202004E-14" y="-86.0" />
       <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="pl.skni.java.umcs.group.order.model.Order" target="pl.skni.java.umcs.group.user.model.User">
+      <point x="49.0" y="-86.0" />
+      <point x="502.5" y="690.0" />
+      <point x="694.75" y="690.0" />
+      <point x="0.0" y="126.5" />
     </edge>
     <edge source="pl.skni.java.umcs.group.transaction.model.Transaction" target="pl.skni.java.umcs.group.order.model.Order">
       <point x="69.66666666666669" y="-86.0" />
-      <point x="314.6666666666667" y="917.0" />
-      <point x="453.5" y="917.0" />
-      <point x="0.0" y="86.0" />
+      <point x="301.1666666666667" y="917.0" />
+      <point x="392.25" y="917.0" />
+      <point x="-61.25" y="86.0" />
+    </edge>
+    <edge source="pl.skni.java.umcs.group.shipment.model.Shipment" target="pl.skni.java.umcs.group.order.model.Order">
+      <point x="-63.0" y="-72.5" />
+      <point x="625.0" y="917.0" />
+      <point x="514.75" y="917.0" />
+      <point x="61.25" y="86.0" />
     </edge>
     <edge source="pl.skni.java.umcs.group.order.model.Order" target="pl.skni.java.umcs.group.order.model.OrderStatus">
-      <point x="49.0" y="-86.0" />
-      <point x="502.5" y="690.0" />
-      <point x="720.5" y="690.0" />
+      <point x="-98.0" y="-86.0" />
+      <point x="355.5" y="700.0" />
+      <point x="124.25" y="700.0" />
       <point x="0.0" y="99.5" />
     </edge>
     <edge source="pl.skni.java.umcs.group.order.model.Order" target="pl.skni.java.umcs.group.product.model.Product">
-      <point x="0.0" y="-86.0" />
+      <point x="98.0" y="-86.0" />
+      <point x="551.5" y="700.0" />
+      <point x="1157.75" y="700.0" />
       <point x="0.0" y="113.0" />
     </edge>
     <edge source="pl.skni.java.umcs.group.product.model.Opinion" target="pl.skni.java.umcs.group.product.model.Product">
@@ -61,34 +80,34 @@
     </edge>
     <edge source="pl.skni.java.umcs.group.product.model.Product" target="pl.skni.java.umcs.group.product.model.Opinion">
       <point x="-83.0" y="-113.0" />
-      <point x="370.5" y="392.0" />
-      <point x="359.0" y="392.0" />
+      <point x="1074.75" y="392.0" />
+      <point x="1063.25" y="392.0" />
       <point x="-47.25" y="72.5" />
     </edge>
     <edge source="pl.skni.java.umcs.group.user.model.User" target="pl.skni.java.umcs.group.user.model.Authority">
-      <point x="-98.66666666666669" y="-126.5" />
-      <point x="912.3333333333333" y="392.0" />
-      <point x="813.75" y="392.0" />
+      <point x="98.66666666666669" y="-126.5" />
+      <point x="793.4166666666667" y="392.0" />
+      <point x="892.0" y="392.0" />
       <point x="0.0" y="45.5" />
     </edge>
     <edge source="pl.skni.java.umcs.group.transaction.model.Transaction" target="pl.skni.java.umcs.group.transaction.model.PaymentType">
-      <point x="-1.4210854715202004E-14" y="-86.0" />
+      <point x="-69.66666666666669" y="-86.0" />
+      <point x="161.83333333333331" y="917.0" />
+      <point x="66.0" y="917.0" />
       <point x="0.0" y="45.5" />
     </edge>
     <edge source="pl.skni.java.umcs.group.order.model.Order" target="pl.skni.java.umcs.group.order.model.OrderDeliveryDetailsVO">
-      <point x="-49.0" y="-86.0" />
-      <point x="404.5" y="690.0" />
-      <point x="235.75" y="690.0" />
+      <point x="0.0" y="-86.0" />
       <point x="73.25" y="113.0" />
     </edge>
     <edge source="pl.skni.java.umcs.group.product.model.Product" target="pl.skni.java.umcs.group.productType.model.ProductType">
       <point x="83.0" y="-113.0" />
-      <point x="536.5" y="392.0" />
-      <point x="605.25" y="392.0" />
+      <point x="1240.75" y="392.0" />
+      <point x="1309.5" y="392.0" />
       <point x="0.0" y="59.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.7671957671957672" x="615.5" y="557.0" />
+  <settings layout="Hierarchic Group" zoom="0.7663139329805997" x="697.0" y="557.0" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
