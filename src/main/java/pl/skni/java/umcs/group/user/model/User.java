@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static pl.skni.java.umcs.group.helper.ValidationHelper.validateNotNullParams;
+import static pl.skni.java.umcs.group.util.ValidationHelper.validateNotNullParams;
 
 /**
  * Created by Jakub Pyda on 31.03.2016.
@@ -55,10 +55,6 @@ public class User implements UserDetails {
         this.enabled = true; //todo enabled true po wysłaniu maila i potwierdzeniu konta
     }
 
-    public void updateUserDetails(String firstName, String lastName, String city, String email, String address, String zipCode, String phoneNumber) {
-        this.userDetails = new UserDetailsVO(firstName, lastName, city, email, address, zipCode, phoneNumber);
-    }
-
     public static List<GrantedAuthority> getGrantedAuthorities(List<String> roles) {
         List<GrantedAuthority> authorities = Lists.newArrayList();
 
@@ -66,6 +62,10 @@ public class User implements UserDetails {
                 .forEach(a -> authorities.add(new SimpleGrantedAuthority(a)));
 
         return authorities;
+    }
+
+    public void updateUserDetails(String firstName, String lastName, String city, String email, String address, String zipCode, String phoneNumber) {
+        this.userDetails = new UserDetailsVO(firstName, lastName, city, email, address, zipCode, phoneNumber);
     }
 
     @Override

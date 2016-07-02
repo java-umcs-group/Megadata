@@ -1,4 +1,4 @@
-package pl.skni.java.umcs.group.helper;
+package pl.skni.java.umcs.group.util;
 
 import java.security.InvalidParameterException;
 

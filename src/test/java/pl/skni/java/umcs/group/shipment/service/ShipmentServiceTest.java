@@ -9,7 +9,7 @@ import pl.skni.java.umcs.group.shipment.model.ShipmentType;
 
 import java.util.List;
 
-public class ShipmentServiceImplTest extends ItTestHelper {
+public class ShipmentServiceTest extends ItTestHelper {
 
     @Test
     public void shouldfindByStatus() throws Exception {

@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-import static pl.skni.java.umcs.group.helper.ValidationHelper.validateNotNullParams;
+import static pl.skni.java.umcs.group.util.ValidationHelper.validateNotNullParams;
 
 /**
  * Created by Jakub Pyda on 01.04.2016.
@@ -14,7 +14,7 @@ import static pl.skni.java.umcs.group.helper.ValidationHelper.validateNotNullPar
 @Embeddable
 @Getter
 @NoArgsConstructor
-public class UserDetailsVO {
+class UserDetailsVO {
 
     @Column(name = "firstName")
     private String firstName;
@@ -31,7 +31,7 @@ public class UserDetailsVO {
     @Column(name = "phoneNumber")
     private String phoneNumber;
 
-    public UserDetailsVO(String firstName, String lastName, String city, String email, String address, String zipCode, String phoneNumber) {
+    UserDetailsVO(String firstName, String lastName, String city, String email, String address, String zipCode, String phoneNumber) {
         validateNotNullParams(firstName, lastName, city, email, address, zipCode, phoneNumber);
         this.firstName = firstName;
         this.lastName = lastName;

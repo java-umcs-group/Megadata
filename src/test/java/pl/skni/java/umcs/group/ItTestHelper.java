@@ -6,24 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import pl.skni.java.umcs.group.order.OrderService;
+import pl.skni.java.umcs.group.product.ProductService;
+import pl.skni.java.umcs.group.productType.ProductTypeService;
+import pl.skni.java.umcs.group.user.UserService;
 import pl.skni.java.umcs.group.order.model.Order;
-import pl.skni.java.umcs.group.order.service.OrderService;
 import pl.skni.java.umcs.group.product.model.Product;
-import pl.skni.java.umcs.group.product.service.ProductService;
 import pl.skni.java.umcs.group.productType.model.ProductType;
-import pl.skni.java.umcs.group.productType.service.ProductTypeService;
 import pl.skni.java.umcs.group.shipment.model.Shipment;
 import pl.skni.java.umcs.group.shipment.model.ShipmentStatus;
 import pl.skni.java.umcs.group.shipment.model.ShipmentType;
-import pl.skni.java.umcs.group.shipment.service.ShipmentService;
+import pl.skni.java.umcs.group.shipment.ShipmentService;
 import pl.skni.java.umcs.group.transaction.model.PaymentType;
 import pl.skni.java.umcs.group.transaction.model.Transaction;
-import pl.skni.java.umcs.group.transaction.service.TransactionService;
+import pl.skni.java.umcs.group.transaction.TransactionService;
 import pl.skni.java.umcs.group.user.model.Authority;
 import pl.skni.java.umcs.group.user.model.Role;
 import pl.skni.java.umcs.group.user.model.User;
-import pl.skni.java.umcs.group.user.repository.AuthorityRepository;
-import pl.skni.java.umcs.group.user.service.UserService;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -52,25 +51,21 @@ public class ItTestHelper {
     @Autowired
     protected TransactionService transactionService;
 
-    @Autowired
-    protected AuthorityRepository authorityRepository;
-
     @Test
     public void contextLoads() {
     }
 
-    protected final String USER_NAME = "john123";
-    protected final String PASSWORD = "securepass";
-    protected final String FIRST_NAME = "john";
-    protected final String LAST_NAME = "kowalski";
-    protected final String EMAIL = "johnK@mail.com";
-    protected final String ADDRESS = "WA Street";
-    protected final String PHONE_NUMBER = "123456789024";
-    protected final String ZIP_CODE = "342-2345";
-    protected final String CITY = "NY";
+    private final String USER_NAME = "john123";
+    private final String PASSWORD = "securepass";
+    private final String FIRST_NAME = "john";
+    private final String LAST_NAME = "kowalski";
+    private final String EMAIL = "johnK@mail.com";
+    private final String ADDRESS = "WA Street";
+    private final String PHONE_NUMBER = "123456789024";
+    private final String ZIP_CODE = "342-2345";
+    private final String CITY = "NY";
 
     protected User createUser() {
-        setUpAuthority();
         return userService.createUser(
                 USER_NAME, PASSWORD, FIRST_NAME, LAST_NAME,
                 EMAIL, ADDRESS, PHONE_NUMBER, ZIP_CODE, CITY
@@ -112,13 +107,4 @@ public class ItTestHelper {
     protected Shipment createShipment() {
         return shipmentService.createShipment(createOrder(), ShipmentStatus.PENDING, ShipmentType.EXPRESS);
     }
-
-    public void setUpAuthority() {
-        //wartosci slownikowe
-        if (authorityRepository.findByRole(Role.ROLE_USER) == null) {
-            authorityRepository.save(new Authority(Role.ROLE_ADMIN));
-            authorityRepository.save(new Authority(Role.ROLE_USER));
-        }
-    }
-
 }

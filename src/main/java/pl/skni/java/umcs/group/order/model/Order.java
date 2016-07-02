@@ -38,7 +38,7 @@ public class Order {
     private OrderStatus status;
 
 
-    public Order(List<Product> products, @Nullable User user, String firstName, String lastName, String address, String city, String zipCode, String email, String phoneNumber ) {
+    public Order(List<Product> products, @Nullable User user, String firstName, String lastName, String address, String city, String zipCode, String email, String phoneNumber) {
         this.products = products;
         this.user = user;
         this.status = OrderStatus.NEW;

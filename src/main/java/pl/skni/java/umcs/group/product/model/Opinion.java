@@ -2,11 +2,10 @@ package pl.skni.java.umcs.group.product.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import pl.skni.java.umcs.group.helper.ValidationHelper;
 
 import javax.persistence.*;
 
-import static pl.skni.java.umcs.group.helper.ValidationHelper.validateNotNullParams;
+import static pl.skni.java.umcs.group.util.ValidationHelper.validateNotNullParams;
 
 /**
  * Created by Tomasz Szerszeń on 01.04.16.

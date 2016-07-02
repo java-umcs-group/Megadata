@@ -1,6 +1,5 @@
 package pl.skni.java.umcs.group.user.service;
 
-import org.junit.Before;
 import org.junit.Test;
 import pl.skni.java.umcs.group.ItTestHelper;
 import pl.skni.java.umcs.group.user.model.User;
@@ -11,12 +10,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Created by Jakub Pyda on 03.04.2016.
  */
 
-public class UserServiceImplTest extends ItTestHelper {
+public class UserServiceTest extends ItTestHelper {
 
-    @Before
-    public void setUp() {
-        setUpAuthority();
-    }
 
     @Test
     public void shouldCreateUserAndGetById() {

@@ -16,17 +16,17 @@ public class Authority implements GrantedAuthority {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer authorityId;
+    private Integer authorityId;
 
     @Column(name = "Role")
-    Role role;
+    private Role role;
+
+    public Authority(Role role) {
+        this.role = role;
+    }
 
     @Override
     public String getAuthority() {
         return String.valueOf(role);
-    }
-
-    public Authority(Role role) {
-        this.role = role;
     }
 }
